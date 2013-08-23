@@ -88,7 +88,7 @@ public class AutowiredInjectResolver implements InjectionResolver<Autowired> {
             return ctx.getBean(beanName, bt);
         }
         Map<String, ?> beans = ctx.getBeansOfType(bt);
-        if(beans == null || beans.size() != 1) {
+        if(beans == null || beans.size() != 1) { //might be wrong? what if you find 2 beans?
             LOGGER.warning("no beans found, resolve failed for type "+beanType);
             return null;
         }
